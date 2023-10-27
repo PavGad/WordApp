@@ -40,7 +40,7 @@ namespace WordApp.Persistence.Repositories
                     .WithSSL()
                     .WithRegion(Region)
                     .Build();
-
+                    
                 var args = new PutObjectArgs()
                        .WithBucket(BucketName)
                        .WithObject(imageName)

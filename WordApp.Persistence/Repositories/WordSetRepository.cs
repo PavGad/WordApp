@@ -183,7 +183,7 @@ namespace WordApp.Persistence.Repositories
                 .Take(PageSize)
                 .ToListAsync();
 
-            var pages = await _context.WordSets.CountAsync();
+            var pages = await _context.WordSets.Where(s => s.Confirmed).CountAsync();
 
             return (wordSets.Select(x => _mapper.Map<WordSetDto>(x)).ToList(), (pages + PageSize - 1) / PageSize);
         }
